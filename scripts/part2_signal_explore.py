@@ -1,10 +1,12 @@
 import numpy as np
+from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')  # Bypass Tkinter GUI and render directly to file
 import matplotlib.pyplot as plt
 
 # 1. Load data
-data = np.load('spike_data.npz')
+project_dir = Path(__file__).resolve().parents[1]
+data = np.load(project_dir / 'data' / 'spike_data.npz')
 t = data['t']
 raw_data = data['raw_data']
 
@@ -51,5 +53,5 @@ axes[2].set_ylabel('Voltage (V)')
 axes[2].grid(True, linestyle='--', alpha=0.6)
 
 plt.tight_layout()
-plt.savefig('part2_exploratory_plots.png', dpi=300)
+plt.savefig(project_dir / 'plots' / 'part2_exploratory_plots.png', dpi=300)
 print("\nPlot saved successfully as 'part2_exploratory_plots.png'!")

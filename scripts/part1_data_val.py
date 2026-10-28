@@ -1,7 +1,9 @@
 import numpy as np
+from pathlib import Path
 
 # 1. Load the dataset
-data = np.load('spike_data.npz')
+project_dir = Path(__file__).resolve().parents[1]
+data = np.load(project_dir / 'data' / 'spike_data.npz')
 
 # Print available keys/array names in the .npz archive
 print("Keys in archive:", data.files)

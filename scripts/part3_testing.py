@@ -1,10 +1,12 @@
 import numpy as np
+from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')  # Prevents GUI renderer crashes
 import matplotlib.pyplot as plt
 
 # 1. Load the recording
-data = np.load('spike_data.npz')
+project_dir = Path(__file__).resolve().parents[1]
+data = np.load(project_dir / 'data' / 'spike_data.npz')
 t = data['t']
 raw_data = data['raw_data']
 
@@ -44,7 +46,7 @@ plt.yscale('log')  # Log scale highlights the rare spike tail on the right
 plt.legend()
 plt.grid(True, which='both', linestyle='--', alpha=0.5)
 plt.tight_layout()
-plt.savefig('histogram_threshold_analysis.png', dpi=300)
+plt.savefig(project_dir / 'plots' / 'histogram_threshold_analysis.png', dpi=300)
 plt.close()
 
 print("\nHistogram plot saved successfully as 'histogram_threshold_analysis.png'!")
