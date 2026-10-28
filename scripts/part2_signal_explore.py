@@ -43,8 +43,8 @@ axes[1].set_xlabel('Time (s)')
 axes[1].set_ylabel('Voltage (V)')
 axes[1].grid(True, linestyle='--', alpha=0.6)
 
-# Plot 3: Close-up Interval 2 (t = 6.0s to 7.0s)
-t_start2, t_end2 = 6.0, 7.0
+# Plot 3: Close-up Interval 2 (t = 8.0s to 9.5s)
+t_start2, t_end2 = 8.0, 9.5
 mask2 = (t >= t_start2) & (t <= t_end2)
 axes[2].plot(t[mask2], raw_data[mask2], color='darkgreen', linewidth=1.2)
 axes[2].set_title(f'Close-Up Interval 2 ({t_start2}s to {t_end2}s) - Highlighting Baseline Drift / Noise Baseline', fontsize=12, fontweight='bold')
