@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 # ==============================================================================
 # CORE DETECTION FUNCTIONS
@@ -54,7 +55,8 @@ def detect_spikes_custom(signal, threshold, lockout=10):
 
 if __name__ == "__main__":
     # 1. Load Data
-    data = np.load('spike_data.npz')
+    project_dir = Path(__file__).resolve().parents[1]
+    data = np.load(project_dir / 'data' / 'spike_data.npz')
     t = data['t']
     raw_data = data['raw_data']
 
@@ -64,8 +66,8 @@ if __name__ == "__main__":
     # 2. Preprocess & Detrend
     detrended, moving_median, sigma_noise = preprocess_signal(raw_data, window_size=100)
 
-    # 3. Dynamic Thresholding (3.5 * sigma_noise for optimal sensitivity)
-    multiplier = 3.5
+    # 3. Dynamic Thresholding (4.0 * sigma_noise entering the stability plateau)
+    multiplier = 4.0
     v_th = multiplier * sigma_noise
     lockout_samples = 10  # 10 ms lockout clears tails & captures fast doublets
 
@@ -86,7 +88,7 @@ if __name__ == "__main__":
     print("        PART 3: CORRECTED SPIKE DETECTION RESULTS")
     print("=" * 65)
     print(f"Estimated Noise Sigma (MAD):    {sigma_noise:.4f} V")
-    print(f"Applied Voltage Threshold V_th: {v_th:.4f} V ({multiplier:.1f}σ)")
+    print(f"Applied Voltage Threshold V_th: {v_th:.4f} V ({multiplier:.1f} sigma)")
     print(f"Total Detected Spikes:          {total_spikes}")
     print(f"Average Firing Rate:            {firing_rate:.2f} Hz")
     print("-" * 65)
@@ -139,7 +141,8 @@ if __name__ == "__main__":
     plt.legend(loc='upper right')
     plt.grid(True, linestyle='--', alpha=0.6)
     plt.tight_layout()
-    plt.savefig('03_spike_detection_trace.png', dpi=300)
+    output_path = project_dir / 'plots' / '03_spike_detection_trace.png'
+    plt.savefig(output_path, dpi=300)
     plt.close()
 
-    print("\nPlot saved successfully as '03_spike_detection_trace.png'!")
+    print(f"\nPlot saved successfully as '{output_path}'!")
