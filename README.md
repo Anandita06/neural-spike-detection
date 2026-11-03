@@ -2,9 +2,9 @@
 
 An end-to-end neural spike detection project for exploring noisy voltage
 recordings, building and validating a transparent detector, estimating firing
-rates, and benchmarking alternative implementations. The repository is
-organized to support clear, reproducible assignment submissions and serve as a
-professional portfolio of the analysis, code, and results.
+rates, and benchmarking alternative implementations. It combines reproducible
+analysis scripts, documented results, and visualizations of the detection
+process.
 
 **Author:** Anandita Banerjee
 
