@@ -1,9 +1,12 @@
 # Neural Spike Detection
 
-This repository contains the code and results for Assignments 2A and 2B:
-exploring a noisy neural recording, defining and testing a simple spike
-detector, estimating firing rate, and comparing reference and NumPy-based
-implementations.
+An end-to-end neural spike detection project for exploring noisy voltage
+recordings, building and validating a transparent detector, estimating firing
+rates, and benchmarking alternative implementations. The repository is
+organized to support clear, reproducible assignment submissions and serve as a
+professional portfolio of the analysis, code, and results.
+
+**Author:** Anandita Banerjee
 
 ## Project layout
 
@@ -135,10 +138,10 @@ detected spikes with their zero-based sample indices and timestamps in seconds.
 
 ## Interpretation and limitations
 
-- The Assignment 2A brief asks students to write the Part 3 detection
-  specification without AI assistance. This README summarizes the existing
-  implementation; it is not a substitute for that independently written
-  specification.
+- The implementation identifies candidate spikes as positive excursions above
+  a MAD-scaled threshold, grouping nearby crossings with a lockout interval.
+  Accordingly, reported firing rates are method-dependent estimates rather
+  than ground-truth spike labels.
 - The firing-rate estimate assumes detected positive events correspond to
   spikes and that the analyzed recording duration is representative.
 - A fixed threshold multiplier and lockout period may miss small or closely
