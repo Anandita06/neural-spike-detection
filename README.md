@@ -11,12 +11,11 @@ implementations.
 data/
   spike_data.npz
 plots/
-  03_spike_detection_trace.png
-  histogram_threshold_analysis.png
+  part3.1.0_histogram_threshold_analysis.png
+  part3.1.1_spike_detection.png
+  part3.2.2_spike_detection_trace.png
   part2_exploratory_plots.png
   part5_primary_detection_trace.png
-  spike_detection.png
-  spike_verification_closeups.png
 scripts/
   part1_data_val.py
   part2_signal_explore.py
@@ -125,15 +124,14 @@ Part 6 repeats each timing measurement 200 times and reports median runtimes.
 | Figure | Contents |
 | --- | --- |
 | [`part2_exploratory_plots.png`](plots/part2_exploratory_plots.png) | Full recording and two close-up signal views. |
-| [`histogram_threshold_analysis.png`](plots/histogram_threshold_analysis.png) | Detrended-signal distribution with 3-, 4-, and 5-sigma thresholds. |
-| [`spike_detection.png`](plots/spike_detection.png) | Detection trace from the Part 3.1.1 implementation. |
-| [`03_spike_detection_trace.png`](plots/03_spike_detection_trace.png) | Part 3.2.2 detections, baseline, and 4-sigma threshold. |
+| [`part3.1.0_histogram_threshold_analysis.png`](plots/part3.1.0_histogram_threshold_analysis.png) | Detrended-signal distribution with 3-, 4-, and 5-sigma thresholds. |
+| [`part3.1.1_spike_detection.png`](plots/part3.1.1_spike_detection.png) | Detection trace from the Part 3.1.1 implementation. |
+| [`part3.2.2_spike_detection_trace.png`](plots/part3.2.2_spike_detection_trace.png) | Part 3.2.2 detections, baseline, and 4-sigma threshold. |
 | [`part5_primary_detection_trace.png`](plots/part5_primary_detection_trace.png) | Part 5 primary 4-sigma detection trace. |
-| [`spike_verification_closeups.png`](plots/spike_verification_closeups.png) | Close-up verification windows from the earlier Part 3.2.1 workflow. |
 
 The figures are committed outputs. Parts 2, 3.1.0, 3.1.1, 3.2.2, and 5
-regenerate their corresponding plots. The close-up verification figure is
-retained from the earlier Part 3.2.1 workflow.
+regenerate their corresponding plots. Part 3.2.2 also prints the first 10
+detected spikes with their zero-based sample indices and timestamps in seconds.
 
 ## Interpretation and limitations
 

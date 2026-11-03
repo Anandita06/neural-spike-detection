@@ -146,3 +146,9 @@ if __name__ == "__main__":
     plt.close()
 
     print(f"\nPlot saved successfully as '{output_path}'!")
+
+    print("--- FIRST 10 DETECTED SPIKES (INDICES & TIMESTAMPS) ---")
+    print(f"{'Spike #':<10}{'Sample Index (0-based)':<24}{'Timestamp (s)':<15}")
+    print("-" * 49)
+    for i in range(min(10, len(spike_indices))):
+        print(f"{i + 1:<10}{spike_indices[i]:<24}{detected_times[i]:<15.3f}")
