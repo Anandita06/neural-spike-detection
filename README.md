@@ -98,11 +98,10 @@ validation against labelled ground truth.
 
 ## Run the analysis
 
-Use Python with NumPy and Matplotlib installed. SciPy is additionally required
-by the Part 3.1.1 implementation:
+Install the project dependencies with:
 
 ```bash
-python -m pip install numpy matplotlib scipy
+python -m pip install -r requirements.txt
 ```
 
 From the repository root, run an individual assignment script as needed:
